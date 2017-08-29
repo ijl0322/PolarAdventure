@@ -84,9 +84,6 @@ class PageSevenViewController: UIViewController, UIGestureRecognizerDelegate, pe
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.fishView.startSwim()
             self.isReadToMeOn()
-            if Random.generator.shouldShowBeluga() {
-                self.beluga.startSwim()
-            }
         }
     }
     
@@ -106,6 +103,11 @@ class PageSevenViewController: UIViewController, UIGestureRecognizerDelegate, pe
     //Animate the penguin to jump into the ocean and the shark and peugin to swim when the penguin is tapped
     func penguinTapped(_ recognizer: UITapGestureRecognizer) {
         penguin?.jump()
+        if Random.generator.shouldShowBeluga() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.beluga.startSwim()
+            }
+        }
     }
 
     //Animate the shark to swim away with the penguin

@@ -75,7 +75,9 @@ class PageOneViewController: UIViewController, UIGestureRecognizerDelegate {
             self.fishView.startSwim()
             self.isReadToMeOn()
             if Random.generator.shouldShowNarwhale() {
-                self.narwhale.startSwim()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                    self.narwhale.startSwim()
+                }
             }
         }
     }
